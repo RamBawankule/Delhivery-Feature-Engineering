@@ -1,5 +1,7 @@
 # Delhivery Logistics Data: Feature Engineering
 
+![image](https://github.com/user-attachments/assets/06edd02e-7323-4d9e-9be9-a41aae32f5d6)
+
 ## Project Overview
 
 This project focuses on processing and transforming raw logistics data from Delhivery, India's largest fully integrated logistics player. The objective is to clean the data, handle its multi-segment trip structure, engineer meaningful features, and prepare a dataset suitable for use by data science teams for tasks like delivery time forecasting or route optimization modeling.
