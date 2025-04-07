@@ -42,25 +42,23 @@ Delhivery-Feature-Engineering/
 ```
 
 ## Key Findings & Insights
-
-*(Summarize 3-5 major insights from your notebook, focusing on data characteristics, feature effectiveness, and comparisons.)*
-* Example: Aggregating trip segments by `trip_uuid` effectively consolidates multi-leg journeys, allowing for trip-level feature creation (e.g., total actual time, total OSRM distance).
-* Example: Engineered time features (e.g., `trip_duration = od_end_time - od_start_time`) correlate well with actual delivery times but show discrepancies compared to `start_scan_to_end_scan`, suggesting potential process gaps.
-* Example: Significant differences exist between actual travel times/distances and OSRM estimates, particularly in certain geographical regions or during specific times, highlighting areas for route optimization or better estimation models.
-* Example: Outlier analysis reveals specific trips with exceptionally long durations or distances, potentially indicating operational issues, data errors, or unique circumstances requiring investigation.
+ 
+* **Effective Aggregation:** Grouping data by `trip_uuid` successfully consolidates multi-segment journeys, enabling the creation of meaningful trip-level features (like total actual time, total OSRM distance).
+* **Value of Engineered Features:** Features derived from timestamps (e.g., hour, day of week, month) and locations (e.g., state, city extracted from names) provide valuable dimensions for analysis and potential modeling.
+* **Actual vs. OSRM Discrepancies:** Significant deviations are observed between actual travel times/distances and OSRM estimates, indicating potential real-world factors (traffic, delays, route choices) not fully captured by OSRM, offering areas for model or operational improvement.
+* **Operational Patterns:** Analysis reveals dominant route types (e.g., FTL preference), high-traffic corridors (busiest state/city pairs), and identifies outliers in time/distance metrics that may correspond to operational exceptions or data issues.
 
 ## Recommendations
 
-*(List 3-5 actionable recommendations based on your feature engineering and analysis. Keep language clear.)*
-* Example: Utilize the aggregated trip-level features (total time, total distance, engineered time components) as primary inputs for delivery time prediction models.
-* Example: Investigate the discrepancies between actual time and OSRM time further; consider incorporating real-time traffic or event data to improve OSRM accuracy or build custom estimation models.
-* Example: Implement robust outlier detection and handling mechanisms in data pipelines to flag potentially problematic trips for operational review.
-* Example: Use the extracted geographical features (State, City) combined with performance metrics (time differences) to identify regions or corridors needing operational improvements or infrastructure focus.
-
+1.  **Utilize Engineered Features:** Prioritize the aggregated trip-level data and newly engineered time/location features as inputs for predictive models (e.g., delivery time forecasting).
+2.  **Refine Estimation Models:** Investigate the systematic differences between actual and OSRM metrics; consider developing custom estimation models or augmenting OSRM with real-time data (traffic, weather) for better accuracy.
+3.  **Implement Anomaly Detection:** Integrate outlier detection mechanisms based on the identified time/distance thresholds into operational data pipelines to flag potentially problematic trips for proactive review and intervention.
+4.  **Optimize High-Traffic Routes:** Focus logistics optimization efforts (e.g., resource allocation, route planning, exploring alternative modes like Carting) on the identified high-volume corridors and states to improve efficiency and reduce delays.
+   
 ## Tools Used
 
 * **Programming Language:** Python
-* **Libraries:** Pandas (Data Manipulation), NumPy, Matplotlib & Seaborn (Visualization), Scikit-learn (Encoding, Scaling), SciPy.stats (Hypothesis Testing - Optional)
+* **Libraries:** Pandas (Data Manipulation), NumPy, Matplotlib & Seaborn (Visualization), Scikit-learn (Encoding, Scaling), SciPy.stats (Hypothesis Testing)
 * **Environment:** Jupyter Notebook
 
 ## License
